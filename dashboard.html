@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClubZone Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<!-- STUDENT DASHBOARD -->
+<div id="studentDashboard" class="role-section">
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <div class="logo-icon"><i class="fas fa-book-open"></i></div>
+            <div class="logo-text">
+                <h1>ClubZone</h1>
+                <p>School Club Management</p>
+            </div>
+        </div>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="dashboard.html" id="nav-dash" class="active">Home</a>
+            <a href="clubdirectory.html" id="nav-dir">Club Directory</a>
+            <a href="profile.html" id="nav-prof">Profile</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="navUserName" class="user-name-text">Loading...</span>
+                    <span id="navUserRole" class="badge">Role</span>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn-unified">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+</header>
+    <main class="container">
+        <section class="home-section">
+            <h2>Welcome back, Student! 👋</h2>
+            <p>Explore the latest club announcements and events</p>
+            
+            <div class="announcements-container">
+                <div class="section-header">
+                    <h3>Upcoming Events</h3>
+                </div>
+                <div class="announcements-grid" id="studentAnnouncementsList">
+                    <!-- Loaded via JS -->
+                    <p class="empty-state">No upcoming events at the moment.</p>
+                </div>
+            </div>
+        </section>
+        <section class="club-directory-section" style="display:none;">
+            <h2>Club Directory</h2>
+            <p>Browse all clubs here</p>
+        </section>
+        <section class="profile-section" style="display:none;">
+            <h2>Your Profile</h2>
+            <p>Edit your personal information here</p>
+        </section>
+    </main>
+</div>
+
+<!-- OFFICER DASHBOARD -->
+<div id="officerDashboard" class="role-section">
+ <header class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <div class="logo-icon"><i class="fas fa-book-open"></i></div>
+            <div class="logo-text">
+                <h1>ClubZone</h1>
+                <p>School Club Management</p>
+            </div>
+        </div>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="dashboard.html" id="nav-dash" class="active">Home</a>
+            <a href="clubdirectory.html" id="nav-dir">Club Directory</a>
+            <a href="profile.html" id="nav-prof">Profile</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="navUserName" class="user-name-text">Loading...</span>
+                    <span id="navUserRole" class="badge">Role</span>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn-unified">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+</header>
+    <main class="container">
+        <section class="home-section">
+            <h2>Welcome back, President! 🎯</h2>
+            <p>Manage your club's announcements and events</p>
+            
+            <div class="announcements-container">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3>My Announcements</h3>
+                    <button class="btn-primary" onclick="openAnnouncementModal()">
+                        <i class="fas fa-plus"></i> Create New
+                    </button>
+                </div>
+                <div class="announcements-grid" id="officerAnnouncementsList">
+                    <!-- Loaded via JS -->
+                    <p class="empty-state">You haven't posted any announcements yet.</p>
+                </div>
+            </div>
+        </section>
+        <section class="club-directory-section" style="display:none;">
+            <h2>Club Directory</h2>
+        </section>
+        <section class="profile-section" style="display:none;">
+            <h2>Your Profile</h2>
+        </section>
+    </main>
+</div>
+
+<!-- ADVISER DASHBOARD -->
+<div id="adviserDashboard" class="role-section">
+   <header class="navbar">
+    <div class="nav-container">
+        <div class="logo-section">
+            <div class="logo-icon"><i class="fas fa-book-open"></i></div>
+            <div class="logo-text">
+                <h1>ClubZone</h1>
+                <p>School Club Management</p>
+            </div>
+        </div>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="dashboard.html" id="nav-dash" class="active">Home</a>
+            <a href="clubdirectory.html" id="nav-dir">Club Directory</a>
+            <a href="profile.html" id="nav-prof">Profile</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="navUserName" class="user-name-text">Loading...</span>
+                    <span id="navUserRole" class="badge">Role</span>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn-unified">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+</header>
+    <main class="container">
+        <section class="home-section">
+            <h2>Welcome back, Adviser! 🏛️</h2>
+            
+            <div class="announcements-container">
+                <div class="section-header">
+                    <h3>Pending Approvals</h3>
+                </div>
+                <div class="announcements-grid" id="adviserPendingList">
+                    <!-- Loaded via JS -->
+                    <p class="empty-state">No pending announcements to review.</p>
+                </div>
+
+                <div class="section-header" style="margin-top: 2rem;">
+                    <h3>All Club Events</h3>
+                </div>
+                <div class="announcements-grid" id="adviserAllList">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </section>
+        <section class="club-directory-section" style="display:none;">
+            <h2>Club Directory</h2>
+        </section>
+        <section class="profile-section" style="display:none;">
+            <h2>Your Profile</h2>
+        </section>
+    </main>
+</div>
+
+<!-- MERGED JS -->
+<script src="dashboard.js"></script>
+
+<!-- ANNOUNCEMENT MODAL (Shared) -->
+<div id="announcementModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+        <h3>Create Announcement</h3>
+        <p style="margin-bottom: 1rem; color: #666;">Submit an event for adviser approval.</p>
+        
+        <label class="input-label">Event Title</label>
+        <input type="text" id="announcementTitle" placeholder="Ex: Science Fair 2024" class="input-field">
+        
+        <label class="input-label">Date</label>
+        <input type="date" id="announcementDate" class="input-field">
+        
+        <label class="input-label">Details</label>
+        <textarea id="announcementContent" placeholder="Describe the event..." class="input-field" rows="4"></textarea>
+        
+        <!-- Hidden ID for Editing -->
+        <input type="hidden" id="editAnnouncementId">
+
+        <div class="modal-btns">
+            <button onclick="saveAnnouncement()" class="confirm-btn">Submit</button>
+            <button onclick="closeAnnouncementModal()" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
