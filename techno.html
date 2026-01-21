@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technophile Club | ClubZone</title>
+    <link rel="stylesheet" href="techno.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo-icon"><i class="fas fa-book-open"></i></div>
+                <div class="logo-text">
+                    <h1>ClubZone</h1>
+                    <p>School Club Management</p>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links-desktop">
+                <a href="dashboard.html" id="nav-dash">Home</a>
+                <a href="clubdirectory.html" id="nav-dir" class="active">Club Directory</a>
+                <a href="profile.html" id="nav-prof">Profile</a>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span id="navUserName" class="user-name-text">Loading...</span>
+                        <span id="navUserRole" class="badge">Role</span>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn-unified">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="club-container">
+        <section class="club-hero">
+            <div class="hero-content">
+                <div class="club-logo-large">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="hero-text">
+                    <h2 id="clubName">Technophile Club</h2>
+                    <p id="clubDesc">Innovating the future through programming, robotics, and digital creativity.</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <button id="registerBtn" class="register-btn" style="display:none;"><i class="fas fa-user-plus"></i> Register to Club</button>
+                <button id="adviserEditBtn" class="edit-btn" style="display:none;"><i class="fas fa-pen"></i> Edit Club Details</button>
+                <button id="addActivityBtn" class="add-activity-btn" style="display:none;"><i class="fas fa-plus"></i> Propose Activity</button>
+            </div>
+            <div class="club-tabs">
+                <button class="tab active">Timeline</button>
+                <button class="tab">About</button>
+                <button class="tab">Members <i class="fas fa-lock lock-icon"></i></button>
+            </div>
+        </section>
+
+        <section class="activity-section">
+            <div class="section-header">
+                <h3><i class="fas fa-calendar-star"></i> Upcoming Activities</h3>
+                <p class="section-subtitle" id="activitySubtitle">Official events and proposals.</p>
+            </div>
+            <div class="event-list" id="upcomingList">
+                </div>
+        </section>
+
+        <section class="activity-section">
+    <h3><i class="fas fa-history"></i> Past Activities</h3>
+    <div class="past-activity-card">
+        <div class="activity-image">
+            <img src="image-ictmonth25.jpg" alt="ICT Month Celebration">
+        </div>
+        <div class="activity-footer">
+            <div class="footer-top">
+                <h4>National ICT Month Celebration</h4>
+                <span class="date-tag"><i class="fas fa-calendar-day"></i> June 24, 2025</span>
+            </div>
+            <p>A month-long series of seminars on cybersecurity, digital literacy, and competitive e-sports to empower tech-driven students.</p>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <div id="editClubModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <h3>Edit Club Info</h3>
+            <div class="input-group">
+                <label>Club Name</label>
+                <input type="text" id="editClubTitleInput">
+            </div>
+            <div class="input-group">
+                <label>Club Description</label>
+                <textarea id="editClubDescInput" rows="4"></textarea>
+            </div>
+            <div class="modal-btns">
+                <button onclick="saveClubDetails()" class="confirm-btn">Save Changes</button>
+                <button onclick="closeModals()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addActivityModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <h3>Propose New Activity</h3>
+            <div class="input-group">
+                <label>Event Title</label>
+                <input type="text" id="newActivityTitle" placeholder="e.g. AI Seminar">
+            </div>
+            <div class="input-group">
+                <label>Date</label>
+                <input type="text" id="newActivityDate" placeholder="e.g. March 2026">
+            </div>
+            <div class="modal-btns">
+                <button onclick="submitActivity()" class="confirm-btn">Submit Proposal</button>
+                <button onclick="closeModals()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <h3>Club Registration</h3>
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder="Enter your full name">
+            </div>
+            <div class="input-group">
+                <label>Student ID</label>
+                <input type="text" id="regStudentId" placeholder="e.g. 2024-0001">
+            </div>
+            <div class="input-group">
+                <label>Grade & Section</label>
+                <input type="text" id="regGradeSection" placeholder="e.g. 12 - STEM A">
+            </div>
+            <div class="input-group">
+                <label>Why do you want to join?</label>
+                <textarea id="regReason" rows="3" placeholder="I love coding because..."></textarea>
+            </div>
+            <div class="modal-btns">
+                <button onclick="submitRegistration()" class="confirm-btn">Submit Application</button>
+                <button onclick="closeModals()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="techno.js"></script>
+</body>
+</html>
